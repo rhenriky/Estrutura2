@@ -29,8 +29,9 @@ int main(){
     printf("%d\n",*((int*)dequeue(&list)));
     printf("%d\n",*((int*)dequeue(&list)));
     printf("%d\n",*((int*)dequeue(&list)));
-    //printf("%d\n",*((int*dequeue(&stack)));
+  //  printf("%d\n",*((int*dequeue(&stack)));
 
     return EXIT_SUCCESS;
 }
     
+

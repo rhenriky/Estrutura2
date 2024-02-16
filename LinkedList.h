@@ -24,7 +24,7 @@ void* first(LinkedList *list);
 void* last(LinkedList *list);
 int push (LinkedList *list, void *data);
 void* pop (LinkedList *list);
-void top (LinkedList *list);
+void* top (LinkedList *list);
 bool isEmpty(LinkedList *list);
 int indexOf(LinkedList *list, void *data, compare equal);
 void* getPos (LinkedList *list, int pos);
