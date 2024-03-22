@@ -1,11 +1,14 @@
 #ifndef DataStructure_GeneralizedLinkedList_h
 #define DataStructure_GeneralizedLinkedList_h
+
 #include <stdbool.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 
 typedef struct Node {
     int type; //0 atomo e 1 lista
-    union{
+    union {
         int atom;
         struct Node *list;
     }atomList;
@@ -17,7 +20,7 @@ int addList(Node **list, Node **subList);
 Node* head(Node *list);
 Node* tail(Node *list);
 void show(Node *list);
-boolean search(Node *list, int atom);
-int depth(Node *list);
+bool search(Node *list, int atom);
+//int depth(Node *list);
 
 #endif

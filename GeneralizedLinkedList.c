@@ -1,49 +1,102 @@
-#include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <stdio.h>
 #include "GeneralizedLinkedList.h"
-#include "log.h"
 
-int addAtom(Node **list, int atom){
-    Node *no = (Node*)malloc(sizeof(Node));
-    if(no == NULL) return -1;
-    no->type = 0;
-    no->atomList.atom = atom;
-    no ->next = NULL;
-    return 1;
-}
-int addList (Node **list, Node **subList){
-    Node *aux = (Node*)malloc(sizeof(Node));
-    if(aux == NULL) return -1;
-    aux->type = 1;
-    aux->atomList.list = subList;
-    aux->next = NULL;
-    return 1;
-
-}
-
-Node* head (Node *list){
-    Node *aux = (Node*)malloc(sizeof(Node));
-    aux->list-next;
-    return aux;
-}
-
-Node* tail(Node *list){
-    Node *aux = (Node*)malloc(sizeof(Node));
-    aux->list->next;
-    return aux;
-}
-
-void show(Node *list){
-    Node *aux = (Node*)malloc(sizeof(Node));
-    aux = list;
-    while(aux!= NULL){
-        printf("%p",&aux);
-        aux->next;
-
+int addAtom(Node **list, int atom)
+{
+    Node *newNode = (Node*)malloc(sizeof(Node));
+    if (newNode==NULL) return -1;
+    newNode->type = 0;
+    newNode->atomList.atom = atom;
+    newNode->next = NULL;
+    if (*list==NULL)
+    {
+        *list=newNode;
     }
-    printf("/n");
+    else
+    {
+        Node *aux=NULL;
+        for (aux= *list; aux->next!=NULL; aux=aux->next);
+        aux->next=newNode;
+    }
+    return 1;
 }
-/*boole search (Node *list, int atom);
-int depth(Node *list);
-*/
+
+int addList(Node **list, Node **subList)
+{
+    Node *newNode = (Node*)malloc(sizeof(Node));
+    if (newNode==NULL) return -1;
+    newNode->type = 1;
+    newNode->atomList.list = *subList;
+    newNode->next = NULL;
+    if (*list==NULL)
+    {
+        *list=newNode;
+    }
+    else
+    {
+        Node *aux=NULL;
+        for (aux= *list; aux->next!=NULL; aux=aux->next);
+        aux->next=newNode;
+    }
+    return 1;
+}
+
+Node* head(Node *list)
+{
+    Node *headaux=NULL;
+    if ((list)->type==0)
+    {
+        headaux=(Node*)malloc(sizeof(Node));
+        headaux->type=0;
+        headaux->atomList.atom=(list)->atomList.atom;
+        headaux->next=NULL;
+    }
+    else
+    {
+        headaux=list->atomList.list;
+    }
+    return headaux;
+}
+
+Node* tail(Node *list)
+{
+    return (list)->next;
+}
+
+void show(Node *list)
+{
+    printf("( ");
+    Node *aux = NULL;
+    for (aux = list; aux!=NULL; aux=aux->next)
+    {
+        if (aux->type==0)
+        {
+            printf("%d ",aux->atomList.atom);
+        }
+        else
+        {
+            show(aux->atomList.list);
+        }
+    }
+    printf(")");
+}
+
+int depth(Node *list)
+{
+    int deep=0;
+    if (list==NULL)
+        return 0;
+
+    Node *aux=NULL;
+    for (aux=list; aux!=NULL; aux=aux->next)
+    {
+        if (aux->type==1)
+        {
+            int prof = depth(aux->atomList.list);
+            if (prof>deep)
+                deep=prof;
+        }
+    }
+    return deep+1;
+}
