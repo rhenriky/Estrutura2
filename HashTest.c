@@ -23,9 +23,8 @@ void imprimirUser(void * user){
     printf("Nome:%s e Saldo:%.2f\n", user1->nome,user1->saldo);    
 }
 
-int main (){
+int main() {
     
-   int main() {
     // Inicializa a estrutura de hash
     HashStruct Hash;
     initHash(&Hash);
@@ -62,5 +61,4 @@ int main (){
     showHashStruct(&Hash, imprimirUser);
 
     return 0;
-}
 }

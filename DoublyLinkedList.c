@@ -43,7 +43,8 @@ int enqueue(DoublyLinkedList *list, void *data){
     //Uma nova área da memória, suficiente para armazenar um nó
     //é  reservada usando malloc
     Node * new_node = (Node *)(malloc(sizeof(Node)));
-    if(new_node == NULL) return -2;
+    if(new_node == NULL) 
+        return -2;
 
         
         new_node->data = data;

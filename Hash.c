@@ -2,11 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
 void initHash(HashStruct *hashStruct){
 
-    for(int i = 0; i<MAX;i++)init(&(hashStruct->hashes[i]));
+    for(int i = 0; i<MAX;i++)
+        init(&(hashStruct->hashes[i]));
     
     hashStruct->size = 0;
 }
@@ -17,7 +16,7 @@ bool isHashEmpty(HashStruct *hashStruct){
 
 int hash(char *key){
     int charSum = 0;
-    for(int i = 0;*key != '\0';i++){
+    for(int i = 0;key[i]!= 0;i++){
         charSum += (*key) * (i+1);
         key++;
     }

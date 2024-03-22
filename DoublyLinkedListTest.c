@@ -22,7 +22,7 @@ void imprimirDados(void * data){
 
    printf(">> %d\n",*data1);
 }
-int main(){
+int main() {
   
     //criando uma DoublyLinkedList
    DoublyLinkedList list;
