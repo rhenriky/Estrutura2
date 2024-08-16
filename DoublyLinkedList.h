@@ -19,7 +19,7 @@
     */
    
     typedef struct DoublyLinkedList {
-        //Node *first;
+        Node *first;
         Node *tail;
         int size;
     }DoublyLinkedList;
