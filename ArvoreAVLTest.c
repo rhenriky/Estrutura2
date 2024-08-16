@@ -9,7 +9,9 @@ void mostrarMenu() {
     printf("2. Remover valor\n");
     printf("3. Exibir a árvore (in-order)\n");
     printf("4. Exibir a árvore (pre-order)\n");
-    printf("5. Sair\n");
+    printf("5. Calcular profundidade da árvore\n");
+    printf("6. Imprimir árvore graficamente\n");
+    printf("7. Sair\n");
     printf("Escolha uma opção: ");
 }
 
@@ -49,15 +51,25 @@ int main() {
                 break;
 
             case 5:
+                printf("Profundidade da árvore: %d\n", profundidadeAVL(arvore->raiz));
+                break;
+
+            case 6:
+                printf("Imprimindo árvore graficamente:\n");
+                imprimirArvore(arvore->raiz, 0);
+                break;
+
+            case 7:
                 printf("Saindo...\n");
                 break;
 
             default:
                 printf("Opção inválida. Tente novamente.\n");
         }
-    } while (opcao != 5);
+    } while (opcao != 7);
 
     destruirArvoreAVL(arvore);
     return 0;
 }
+
 

@@ -20,5 +20,6 @@ void inserirAVL(ArvoreAVL* arvore, int valor);
 void removerAVL(ArvoreAVL* arvore, int valor);
 void emOrdemAVL(NoAVL* no);
 void preOrdemAVL(NoAVL* no);
-
+int profundidadeAVL(NoAVL* no);
+void imprimirArvore(NoAVL* no, int espaco);  
 #endif

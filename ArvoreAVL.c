@@ -207,3 +207,29 @@ void destruirArvoreAVL(ArvoreAVL* arvore) {
     destruirNoAVL(arvore->raiz);
     free(arvore);
 }
+
+int profundidadeAVL(NoAVL* no) {
+    if (no == NULL)
+        return 0;
+
+    int profundidadeEsquerda = profundidadeAVL(no->esquerdo);
+    int profundidadeDireita = profundidadeAVL(no->direito);
+
+    return 1 + (profundidadeEsquerda > profundidadeDireita ? profundidadeEsquerda : profundidadeDireita);
+}
+
+void imprimirArvore(NoAVL* no, int espaco) {
+    if (no == NULL)
+        return;
+
+    espaco += 5;
+
+    imprimirArvore(no->direito, espaco);
+
+    printf("\n");
+    for (int i = 5; i < espaco; i++)
+        printf(" ");
+    printf("%d\n", no->valor);
+
+    imprimirArvore(no->esquerdo, espaco);
+}
