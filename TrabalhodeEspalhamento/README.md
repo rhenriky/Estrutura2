@@ -2,7 +2,7 @@
 Repositório dados2
 
 ------------------------------------------------------
-Projeto Espelhamento, Alunos: João Carlos, Rodrigo Henriky
+Projeto Espelhamento, Alunos: Rodrigo Henriky,João Carlos
 
 # Visualização de Colisões em Tabelas Hash
 
@@ -22,21 +22,21 @@ Este projeto visa visualizar a dispersão de colisões em tabelas hash utilizand
 
 ### Hash Linear
 
-![Hash Linear](./imagem%20ppm/linear.png)
+![Hash Linear](./linear.png)
 
 
 Conclusões: O hash linear, onde a função de hash utiliza `(i + 1)`, demonstrou o menor índice de colisão. A distribuição das colisões é mais uniforme, indicando que essa função é eficiente na dispersão das chaves pela tabela. Esse resultado sugere que a função de hash linear é eficaz para minimizar colisões e distribuir as palavras de forma mais equitativa na tabela.
 
 ### Hash Exponencial
 
-![Hash Exponencial](./imagem%20ppm/peso%20exponencial.png)
+![Hash Exponencial](./peso%20exponencial.png)
 
 
 Conclusões: O hash exponencial, onde a função de hash utiliza `(i^2)`, apresentou um grau médio de colisões, com vários espaços em branco na matriz. Isso indica que, embora essa função consiga dispersar algumas chaves eficientemente, ela ainda deixa muitas posições vazias, resultando em uma distribuição menos uniforme. A função de hash exponencial pode ser adequada para algumas aplicações, mas pode não ser a melhor escolha para garantir uma distribuição uniforme.
 
 ### Hash Sem Peso
 
-![Hash Sem Peso](./imagem%20ppm/Hash%20sem%20peso.png.)
+![Hash Sem Peso](./Hash%20sem%20peso.png.)
 
 
 Conclusão: O hash sem peso, onde a função de hash simplesmente soma os valores ASCII dos caracteres, mostrou que as colisões estão mais concentradas no meio da matriz. Esse comportamento indica que a função de hash sem peso não é eficaz na dispersão das chaves, resultando em uma alta concentração de colisões em certas áreas da tabela. Portanto, esta função de hash pode não ser a melhor escolha quando se busca uma distribuição uniforme das chaves.
@@ -58,3 +58,5 @@ gcc arquivo.c hash.c DoublyLinkedList.c -o arquivo
 Para executar use make arquivo
 
 [def]: ./Linear.png
+
+[def]: ./imagem%20ppm/peso%20exponencial.png
