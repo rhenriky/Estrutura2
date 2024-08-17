@@ -3,6 +3,7 @@
 #include <string.h>
 #include "Hash.h"
 
+
 void initHash(HashStruct *hashStruct) {
     for (int i = 0; i < MAX; i++) {
         init(&(hashStruct->hashes[i]));
@@ -13,14 +14,45 @@ void initHash(HashStruct *hashStruct) {
 bool isHashEmpty(HashStruct *hashStruct) {
     return hashStruct->size == 0;
 }
+//Espalhamento Linear
+int hash(char *key) {
+    int hashValue = 0;
+    int prime = 31;  // Um número primo usado para distribuir melhor os valores de hash
 
+    for (int i = 0; key[i] != 0; i++) {
+        hashValue = prime * hashValue + key[i];  // Multiplicação por um número primo
+    }
+
+    return abs(hashValue) % MAX;  // Garantir que o valor seja positivo e dentro do tamanho da tabela hash
+}
+
+
+/* Hash sem peso 
 int hash(char *key) {
     int sum = 0;
     for (int i = 0; key[i] != 0; i++) {
         sum += key[i];  // Somar diretamente o valor ASCII do caractere
     }
     return sum % MAX;  // Aplicar módulo para manter dentro do tamanho da tabela hash
-}
+}*/
+
+
+
+
+/*Espalhamento exponencial
+int hash(char *key) {
+    int hashValue = 0;
+    int base = 31;
+    int currentBasePower = 1;  // Inicialmente, base^0 = 1
+
+    for (int i = 0; key[i] != 0; i++) {
+        hashValue += key[i] * currentBasePower;  // Multiplica pela potência atual
+        currentBasePower *= base;  // Incrementa a potência da base para a próxima iteração
+    }
+
+    return abs(hashValue) % MAX;  // Garantir que o valor seja positivo e dentro do tamanho da tabela hash
+}*/
+
 
 int put(HashStruct *hashStruct, char *key, void *data, compare equal) {
     if (!containsKey(hashStruct, key, equal)) {
