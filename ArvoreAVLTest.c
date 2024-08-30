@@ -11,7 +11,9 @@ void mostrarMenu() {
     printf("4. Exibir a árvore (pre-order)\n");
     printf("5. Calcular profundidade da árvore\n");
     printf("6. Imprimir árvore graficamente\n");
-    printf("7. Sair\n");
+    printf("7. Destruir a árvore inteira\n"); 
+    printf("8. Destruir um nó específico\n");  
+    printf("9. Sair\n");
     printf("Escolha uma opção: ");
 }
 
@@ -60,16 +62,27 @@ int main() {
                 break;
 
             case 7:
+                destruirArvoreAVL(arvore);
+                printf("Árvore inteira destruída.\n");
+                arvore = criarArvoreAVL();  // Recria a árvore vazia após destruição
+                break;
+
+            case 8:
+                printf("Digite o valor do nó a ser destruído: ");
+                scanf("%d", &valor);
+                removerAVL(arvore, valor);
+                printf("Nó %d e seus descendentes destruídos.\n", valor);
+                break;
+
+            case 9:
                 printf("Saindo...\n");
                 break;
 
             default:
                 printf("Opção inválida. Tente novamente.\n");
         }
-    } while (opcao != 7);
+    } while (opcao != 9);
 
-    destruirArvoreAVL(arvore);
+    destruirArvoreAVL(arvore);  // Garante que a árvore seja destruída antes de sair
     return 0;
 }
-
-

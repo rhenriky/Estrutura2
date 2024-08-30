@@ -1,7 +1,7 @@
 // ArvoreAVL.h
 
-#ifndef ARVORE_AVL_H
-#define ARVORE_AVL_H
+#ifndef ARVOREAVL_H
+#define ARVOREAVL_H
 
 typedef struct NoAVL {
     int valor;
@@ -15,11 +15,14 @@ typedef struct {
 } ArvoreAVL;
 
 ArvoreAVL* criarArvoreAVL();
-void destruirArvoreAVL(ArvoreAVL* arvore);
+void destruirArvoreAVL(ArvoreAVL* arvore);   // Já existente, agora também para destruir a árvore inteira
+void destruirNoAVL(NoAVL* no);               // Nova função para destruir um nó específico
 void inserirAVL(ArvoreAVL* arvore, int valor);
 void removerAVL(ArvoreAVL* arvore, int valor);
 void emOrdemAVL(NoAVL* no);
 void preOrdemAVL(NoAVL* no);
 int profundidadeAVL(NoAVL* no);
-void imprimirArvore(NoAVL* no, int espaco);  
+void imprimirArvore(NoAVL* no, int espaco);
+
 #endif
+
