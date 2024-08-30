@@ -14,7 +14,19 @@ void initHash(HashStruct *hashStruct) {
 bool isHashEmpty(HashStruct *hashStruct) {
     return hashStruct->size == 0;
 }
-//Espalhamento Linear
+
+int hash(char *key) {
+    unsigned long hashValue = 5381;  // Valor inicial
+    int c;
+
+    while ((c = *key++)) {
+        hashValue = ((hashValue << 5) + hashValue) + c;  // hashValue * 33 + c
+    }
+
+    return hashValue % MAX;
+}
+
+/*Espalhamento Linear
 int hash(char *key) {
     int hashValue = 0;
     int prime = 31;  // Um número primo usado para distribuir melhor os valores de hash
@@ -24,10 +36,10 @@ int hash(char *key) {
     }
 
     return abs(hashValue) % MAX;  // Garantir que o valor seja positivo e dentro do tamanho da tabela hash
-}
+}*/
 
 
-/* Hash sem peso 
+  /*Hash sem peso 
 int hash(char *key) {
     int sum = 0;
     for (int i = 0; key[i] != 0; i++) {
@@ -51,8 +63,8 @@ int hash(char *key) {
     }
 
     return abs(hashValue) % MAX;  // Garantir que o valor seja positivo e dentro do tamanho da tabela hash
-}*/
-
+}
+*/
 
 int put(HashStruct *hashStruct, char *key, void *data, compare equal) {
     if (!containsKey(hashStruct, key, equal)) {
