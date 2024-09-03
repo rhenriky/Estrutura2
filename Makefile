@@ -141,4 +141,19 @@ LinkedList: clear
 	@chmod +x LinkedList > /dev/null 2>&1
 	@echo Executando o programa LinkedList
 	@./LinkedList
+	@echo ======================================================
+
+	clear:
+	@rm -f LinkedList
+
+GeneralizedLinkedList: clear
+	@echo ==========================
+	@echo      PROGRAMA GeneralizedLinkedList
+	@echo ==========================
+	@echo Compilando o programa GeneralizedLinkedList
+	@gcc GeneralizedLinkedList.c GeneralizedLinkedList.h GeneralizedLinkedListTest.c -o GeneralizedLinkedList
+	@echo Tornando o programa GeneralizedLinkedList executável
+	@chmod +x GeneralizedLinkedList > /dev/null 2>&1
+	@echo Executando o programa GeneralizedLinkedList
+	@./GeneralizedLinkedList
 	@echo ======================================================		
